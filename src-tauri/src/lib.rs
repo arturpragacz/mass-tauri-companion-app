@@ -10,7 +10,7 @@ use tauri::tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent}
 use tauri::{Emitter, Manager};
 use tauri_plugin_shell::process::CommandChild;
 use tauri_plugin_shell::ShellExt;
-use tauri_plugin_updater::UpdaterExt;
+// use tauri_plugin_updater::UpdaterExt;
 
 #[derive(Clone, serde::Serialize)]
 struct Payload {
@@ -136,7 +136,7 @@ pub fn run() {
             get_output_devices
         ])
         .plugin(tauri_plugin_window_state::Builder::default().build())
-        .plugin(tauri_plugin_updater::Builder::new().build())
+        // .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_single_instance::init(|app, argv, cwd| {
             println!("{}, {argv:?}, {cwd}", app.package_info().name);
             let window = app.get_webview_window("main").unwrap();
@@ -146,9 +146,9 @@ pub fn run() {
         }))
         .setup(move |app| {
             let handle = app.handle().clone();
-            tauri::async_runtime::spawn(async move {
-                let _response = handle.updater().unwrap().check().await;
-            });
+            // tauri::async_runtime::spawn(async move {
+            //     let _response = handle.updater().unwrap().check().await;
+            // });
 
             let quit = MenuItemBuilder::with_id("quit", "Quit").build(app)?;
             let update = MenuItemBuilder::with_id("update", "Check for updates").build(app)?;
@@ -187,10 +187,10 @@ pub fn run() {
                         tauri::process::restart(&app.env());
                     }
                     "update" => {
-                        let handle = app.app_handle().clone();
-                        tauri::async_runtime::spawn(async move {
-                            let _response = handle.updater().unwrap().check().await;
-                        });
+                        // let handle = app.app_handle().clone();
+                        // tauri::async_runtime::spawn(async move {
+                        //     let _response = handle.updater().unwrap().check().await;
+                        // });
                     }
                     _ => (),
                 }})
