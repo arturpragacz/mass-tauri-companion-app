@@ -30,19 +30,6 @@
   "productName": "Music Assistant Companion",
   "version": "0.1.0",
   "identifier": "io.music-assistant.companion",
-  "plugins": {
-    "updater": {
-      "endpoints": [
-        "https://github.com/music-assistant/music-assistant-desktop/releases/latest/download/latest.json",
-        "https://github.com/music-assistant/companion/releases/latest/download/latest.json"
-      ],
-      "windows": {
-        "installMode": "passive",
-        "installerArgs": []
-      },
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDE4MTRFMzdFOTQxREQ0MzIKUldReTFCMlVmdU1VR0xtTW4wRzVjRThzLzA1NG4rZXhSYmYwTngxQmw3RVRDelJ2VEQzby80dmUK"
-    }
-  },
   "app": {
     "withGlobalTauri": false,
     "windows": [

@@ -1,4 +1,4 @@
 [submodule "frontend"]
 	path = frontend
-  url = https://github.com/music-assistant/frontend.git
+  url = git@github.com:arturpragacz/mass-frontend.git
   branch = companion
